@@ -1,4 +1,15 @@
 <template>
+  <div class="container">
+    <h1>This is an timer page</h1>
+    <h1>{{ currentText }}</h1>
+    <h2>{{ timeText }}</h2>
+    <b-button class="timerbtn"><b-icon-play></b-icon-play></b-button>
+  </div>
+</template>
+
+<script>
+</script>
+<!-- <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
@@ -15,4 +26,20 @@ export default {
     HelloWorld
   }
 }
-</script>
+</script> -->
+<style>
+.container{
+  text-align: center;
+}
+.timerbtn{
+  border: none;
+  background: transparent;
+  color: #68ABD7;
+  font-size: 2rem;
+}
+.timerbtn:hover{
+  border: none;
+  background: transparent;
+  color: #fff;
+}
+</style>

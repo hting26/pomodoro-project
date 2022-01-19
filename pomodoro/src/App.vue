@@ -1,50 +1,11 @@
 <template>
   <div id="app">
     <div id="nav">
-      <div id="timer" class="ml-auto"><router-link to="/">Timer</router-link></div>
-      <router-link to="/task">task</router-link>
+      <div id="timer" class="h5 ml-auto"><router-link to="/" class="text-white navtool"><b-icon-clock class="h2"></b-icon-clock>Timer</router-link></div>
+      <div id="task" class="h5 mx-5"><router-link to="/task" class="text-white navtool"><b-icon-check-square class="h2"></b-icon-check-square>Task</router-link></div>
+      <div id="settings" class="h5 mr-5"><router-link to="/settings" class="text-white navtool"><b-icon-gear class="h2"></b-icon-gear>Settings</router-link></div>
     </div>
     <router-view/>
-    <b-input-group prepend="Username" class="mt-3">
-    <b-form-input></b-form-input>
-    <b-input-group-append>
-      <b-button variant="outline-success">Button</b-button>
-      <b-button variant="info">Button</b-button>
-    </b-input-group-append>
-  </b-input-group>
-  <!-- ------------------------------------------------ -->
-  <b-navbar toggleable="lg" type="dark" variant="info">
-    <b-collapse id="nav-collapse" is-nav>
-      <b-navbar-nav>
-        <b-nav-item href="#">Link</b-nav-item>
-        <b-nav-item href="#" disabled>Disabled</b-nav-item>
-      </b-navbar-nav>
-
-      <!-- Right aligned nav items -->
-      <b-navbar-nav class="ml-auto">
-        <b-nav-form>
-          <b-form-input size="sm" class="mr-sm-2" placeholder="Search"></b-form-input>
-          <b-button size="sm" class="my-2 my-sm-0" type="submit">Search</b-button>
-        </b-nav-form>
-
-        <b-nav-item-dropdown text="Lang" right>
-          <b-dropdown-item href="#">EN</b-dropdown-item>
-          <b-dropdown-item href="#">ES</b-dropdown-item>
-          <b-dropdown-item href="#">RU</b-dropdown-item>
-          <b-dropdown-item href="#">FA</b-dropdown-item>
-        </b-nav-item-dropdown>
-
-        <b-nav-item-dropdown right>
-          <!-- Using 'button-content' slot -->
-          <template #button-content>
-            <em>User</em>
-          </template>
-          <b-dropdown-item href="#">Profile</b-dropdown-item>
-          <b-dropdown-item href="#">Sign Out</b-dropdown-item>
-        </b-nav-item-dropdown>
-      </b-navbar-nav>
-    </b-collapse>
-  </b-navbar>
   </div>
 </template>
 
@@ -60,7 +21,16 @@ body
   // color #2c3e50
   // margin-top 60px
 #nav
-  background #000
+  // background #000
   display flex
   padding 1rem
+.navtool
+  display flex
+  flex-direction column
+  justify-content center
 </style>
+<!-- <style>
+// .navtool{
+//   justify-content: center;
+// }
+// </style> -->
