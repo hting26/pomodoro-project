@@ -1,10 +1,11 @@
 <template>
-  <div class="container">
+  <b-container>
+    <h1>This is an timer page</h1>
     <h1>This is an timer page</h1>
     <h1>{{ currentText }}</h1>
     <h2>{{ timeText }}</h2>
     <b-button class="timerbtn"><b-icon-play></b-icon-play></b-button>
-  </div>
+  </b-container>
 </template>
 
 <script>
