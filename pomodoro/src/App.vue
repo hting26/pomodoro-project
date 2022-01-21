@@ -1,15 +1,15 @@
 <template lang="pug">
 #app
   #nav
-    #timer.h5.ml-auto
+    #timer.h6.ml-auto
       router-link.text-white.navtool(to='/')
         b-icon-clock.mx-auto.h3
         | Timer
-    #task.h5.mx-4
+    #task.h6.mx-4
       router-link.text-white.navtool(to='/task')
         b-icon-check-square.mx-auto.h3
         | Task
-    #settings.h5.mr-4
+    #settings.h6.mr-4
       router-link.text-white.navtool(to='/settings')
         b-icon-gear.mx-auto.h3
         | Settings
