@@ -2,9 +2,7 @@
 #settings
   b-container
     b-row
-      b-col(cols="12")
-        h1.text-center 設定
-      b-col(cols="12")
+      b-col.mx-auto(cols="8")
         b-table(:items="items" :fields="fields"  @row-clicked='select')
           template(#cell(src)="data")
             audio(controls :src="require('@/assets/' + data.value)")

@@ -1,18 +1,19 @@
-<template>
-  <div id="app">
-    <div id="nav">
-      <div id="timer" class="h5 ml-auto">
-        <router-link to="/" class="text-white navtool"><b-icon-clock class="h2"></b-icon-clock>Timer</router-link>
-        </div>
-      <div id="task" class="h5 mx-5">
-        <router-link to="/task" class="text-white navtool"><b-icon-check-square class="h2"></b-icon-check-square>Task</router-link>
-        </div>
-      <div id="settings" class="h5 mr-5">
-        <router-link to="/settings" class="text-white navtool"><b-icon-gear class="h2"></b-icon-gear>Settings</router-link>
-        </div>
-    </div>
-    <router-view></router-view>
-  </div>
+<template lang="pug">
+#app
+  #nav
+    #timer.h5.ml-auto
+      router-link.text-white.navtool(to='/')
+        b-icon-clock.mx-auto.h3
+        | Timer
+    #task.h5.mx-4
+      router-link.text-white.navtool(to='/task')
+        b-icon-check-square.mx-auto.h3
+        | Task
+    #settings.h5.mr-4
+      router-link.text-white.navtool(to='/settings')
+        b-icon-gear.mx-auto.h3
+        | Settings
+  router-view
 </template>
 
 <style lang="stylus">
