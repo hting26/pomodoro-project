@@ -8,6 +8,35 @@
             placeholder="+ 新增待辦事項" v-model="newinput" :state="newinputstate" @keydown.enter="additem")
         b-btn#addbtn(pill, @click="additem") 新增
       b-col.mx-auto(cols="8")
+        b-tabs.mytabs(content-class='mt-3')
+          b-tab.mytab(title='First' active)
+            b-col.mx-auto.my-3
+              b-table(:items="items" :fields="fields" show-empty)
+                template(#empty)
+                  p.title.text-center 沒有項目
+                template(#cell(name)="data")
+                  b-form-input(
+                    v-if="data.item.edit"
+                    v-model="data.item.model"
+                    :state="data.item.state"
+                    @keydown.enter="submitedit(data.index)"
+                    @keydown.esc="canceledit(data.index)"
+                  )
+                  span(v-else) {{ data.value }}
+                template(#cell(action)="data")
+                  span(v-if="data.item.edit")
+                    btn.mybtn.mx-3
+                      b-icon(icon="check" @click="submitedit(data.index)")
+                    btn.mybtn.mx-1
+                      b-icon(icon="arrow-counterclockwise" @click="canceledit(data.index)")
+                  span(v-else)
+                    btn#editbtn.mybtn.mx-3
+                      b-icon(icon="pencil" @click="edititem(data.index)")
+                    btn#delbtn.mybtn.mx-1
+                      b-icon(icon="trash" @click="delitem(data.index)")
+          b-tab.mytab(title='Second')
+            p I'm the second tab
+      b-col.mx-auto(cols="8")
         p.title.text-center 待辦事項
       b-col.mx-auto.my-3(cols="8")
         b-table(:items="items" :fields="fields" show-empty)
@@ -136,6 +165,10 @@ export default {
 #addbtn:focus{
   box-shadow: none;
   }
+.mytabs .nav-link{
+  background: none;
+  color: #fff;
+}
 .mybtn{
   color: #fff;
   transition: .3s;
