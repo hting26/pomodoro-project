@@ -87,10 +87,13 @@ export default {
 
 <style>
 body{
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cinzel', serif;
 }
 .container{
   text-align: center;
+}
+.row{
+  margin-top: 8vw;
 }
 .timer{
   font-size: 4.5rem;
