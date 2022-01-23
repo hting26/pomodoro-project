@@ -2,7 +2,7 @@
 #settings
   b-container
     b-row
-      b-col.mx-auto(cols="8")
+      b-col(cols="12")
         b-table(:items="items" :fields="fields"  @row-clicked='select')
           template(#cell(src)="data")
             audio(controls :src="require('@/assets/' + data.value)")
@@ -14,8 +14,8 @@ export default {
   data () {
     return {
       items: [
-        { name: '鬧鈴', src: 'alarm.mp3', select: '<b-icon-sqare class="h3"></b-icon-sqare>' },
-        { name: 'yay', src: 'yay.mp3', select: '<b-icon-sqare class="h3"></b-icon-sqare>' }
+        { name: 'saxsoloe', src: 'saxsoloe.wav' },
+        { name: 'organ melancholic progression', src: 'organ melancholic progression.wav', select: '' }
       ],
       fields: [
         { key: 'name', label: '鈴聲' },

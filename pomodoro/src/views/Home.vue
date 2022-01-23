@@ -4,13 +4,16 @@
     b-row
       b-col(cols="12")
         h1 {{ currentText }}
-        h2 {{ timeText }}
-        b-btn.mx-1(variant="primary" v-if="status !== 1" @click="start")
-          b-icon(icon="play-fill")
-        b-btn.mx-1(variant="primary" v-else @click="pause")
-          b-icon(icon="pause-fill")
-        b-btn.mx-1(variant="primary" v-if="current.length > 0" @click="finish(true)")
-          b-icon(icon="skip-end-fill")
+        p.timer {{ timeText }}
+        .btngroup.my-4
+          btn.playbtn.my-2(v-if="status !== 1" @click="start"
+          @mouseover="hover = true" @mouseleave="hover = false")
+            img(v-show="hover" src="../assets/icon_play.svg")
+            img(v-hide="hover=false" src="../assets/icon_play_hover.svg")
+          btn.my-2(v-else @click="pause")
+            img(src="../assets/icon_pause.svg")
+          btn.donebtn.mx-auto.my-2(v-if="current.length > 0" @click="finish(true)")
+            | 完成此代辦
 </template>
 
 <script>
@@ -21,7 +24,8 @@ export default {
       // 1 = 倒數中
       // 2 = 暫停
       status: 0,
-      timer: 0
+      timer: 0,
+      hover: false
     }
   },
   computed: {
@@ -82,8 +86,14 @@ export default {
 </script>
 
 <style>
+body{
+  font-family: 'Playfair Display', serif;
+}
 .container{
   text-align: center;
+}
+.timer{
+  font-size: 4.5rem;
 }
 .timerbtn{
   border: none;
@@ -95,5 +105,19 @@ export default {
   border: none;
   background: transparent;
   color: #fff;
+}
+.btngroup{
+  display: flex;
+  flex-direction: column;
+}
+btn{
+  cursor: pointer;
+}
+.donebtn{
+  border: 1px solid #fff;
+  border-radius: 50px;
+  width: 130px;
+  height: 35px;
+  line-height: 35px;
 }
 </style>

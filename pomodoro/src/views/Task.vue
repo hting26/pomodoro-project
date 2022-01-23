@@ -7,7 +7,7 @@
           b-form-input#newinput(
             placeholder="+ 新增待辦事項" v-model="newinput" :state="newinputstate" @keydown.enter="additem")
         b-btn#addbtn(pill, @click="additem") 新增
-      b-col.mx-auto.my-5(cols="8")
+      b-col.mx-auto.my-4(cols="8")
         b-tabs.mytabs(content-class='mt-3')
           b-tab.mytab(title='待辦事項' active)
             b-col.mx-auto.my-3
