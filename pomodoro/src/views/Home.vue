@@ -9,10 +9,11 @@
           btn.playbtn.my-5.mx-auto(v-if="status !== 1" @click="start")
             img(:src="pictureHover" @mouseover="hover = true" @mouseleave="hover = false")
             //- img(v-show="hover" src="../assets/icon_play_hover.svg")
-          btn(v-else @click="pause")
+          btn.my-5(v-else @click="pause")
             img(src="../assets/icon_pause.svg")
-          btn.donebtn.mx-auto.my-2(v-if="current.length > 0" @click="finish(true)")
+          btn.donebtn.my-5.mx-auto(v-if="current.length > 0" @click="finish(true)")
             | 完成此代辦
+  .line
 </template>
 
 <script>
@@ -124,9 +125,6 @@ body{
 btn{
   cursor: pointer;
 }
-btn{
-  cursor: pointer;
-}
 .playbtn{
   width: 60px;
 }
@@ -136,5 +134,12 @@ btn{
   width: 130px;
   height: 35px;
   line-height: 35px;
+}
+.line{
+  position: relative;
+  bottom: 200px;
+  width: 100vw;
+  height: 1px;
+  background-color: #fff;
 }
 </style>

@@ -47,6 +47,7 @@ table>*{
 }
 tbody tr td:nth-child(1),
 tbody tr td:nth-child(3){
-  line-height: 43px;
+  position: relative;
+  top: 18px;
 }
 </style>

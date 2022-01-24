@@ -2,11 +2,12 @@
 #task
   b-container
     b-row
-      b-col.mx-auto.my-2(cols="8")
+      b-col.mx-auto(cols="8")
         b-form-group(label-for="newinput" invalid-feedback="字數太少")
           b-form-input#newinput(
             placeholder="+ 新增待辦事項" v-model="newinput" :state="newinputstate" @keydown.enter="additem")
-          b-btn#addbtn(pill, @click="additem") 新增
+            //- :disabled="isBtnDisabled"
+          b-btn#addbtn(pill @click="additem") 新增
       b-col.mx-auto.my-4(cols="8")
         b-tabs.mytabs(content-class='mt-3')
           b-tab.mytab(title='待辦事項' active)
@@ -58,6 +59,7 @@ export default {
         { key: 'name' },
         { key: 'action' }
       ]
+      // isBtnDisabled: true
     }
   },
   computed: {
@@ -73,6 +75,9 @@ export default {
     finished () {
       return this.$store.state.finished
     }
+    // isBtnDisabled () {
+    //   return this.newinputstate ? this.false : this.true
+    // }
   },
   methods: {
     additem () {
@@ -126,12 +131,12 @@ export default {
   width: 5rem;
   border: none;
   background: rgb(146, 200, 224);
-  opacity: 0.4;
-  transition: .3s;
+  /* opacity: 0.4; */
+  /* transition: .3s; */
   }
-#addbtn:hover{
+/* #addbtn:hover{
   opacity: 1;
-  }
+  } */
 #addbtn:focus{
   box-shadow: none;
   }
@@ -200,17 +205,18 @@ span{
 #addbtn{
   position: absolute;
   top: .4rem;
-  /* bottom: 0; */
   right: 1.4rem;
   height: 2.2rem;
 }
 .playbtn{
   position: relative;
   bottom: 25px;
-  /* background-color: aqua; */
 }
 .playbtn img{
   width: 1.4rem;
-  /* background-color: aqua; */
 }
+/* #addbtn:disabled{
+  background: rgb(196, 218, 230);
+  cursor: not-allowed;
+} */
 </style>
