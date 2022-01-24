@@ -37,9 +37,16 @@ export default {
 }
 </script>
 
-<style lang="stylus">
-table>*
-  color #68ABD7
-// tr:hover
-//   cursor pointer
+<style>
+.container{
+  width: 50%;
+}
+table>*{
+  color: #68ABD7;
+  text-align: left;
+}
+tbody tr td:nth-child(1),
+tbody tr td:nth-child(3){
+  line-height: 43px;
+}
 </style>

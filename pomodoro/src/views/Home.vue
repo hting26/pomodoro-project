@@ -5,12 +5,11 @@
       b-col(cols="12")
         h1 {{ currentText }}
         p.timer {{ timeText }}
-        .btngroup.my-4
-          btn.playbtn.my-2(v-if="status !== 1" @click="start"
-          @mouseover="hover = true" @mouseleave="hover = false")
-            img(v-show="hover" src="../assets/icon_play.svg")
-            img(v-hide="hover=false" src="../assets/icon_play_hover.svg")
-          btn.my-2(v-else @click="pause")
+        .btngroup.my-5
+          btn.playbtn.my-5.mx-auto(v-if="status !== 1" @click="start")
+            img(:src="pictureHover" @mouseover="hover = true" @mouseleave="hover = false")
+            //- img(v-show="hover" src="../assets/icon_play_hover.svg")
+          btn(v-else @click="pause")
             img(src="../assets/icon_pause.svg")
           btn.donebtn.mx-auto.my-2(v-if="current.length > 0" @click="finish(true)")
             | 完成此代辦
@@ -25,7 +24,9 @@ export default {
       // 2 = 暫停
       status: 0,
       timer: 0,
-      hover: false
+      hover: false,
+      playhover: require('@/assets/icon_play_hover.svg'),
+      playimg: require('@/assets/icon_play.svg')
     }
   },
   computed: {
@@ -45,6 +46,13 @@ export default {
       const m = Math.floor(this.timeleft / 60).toString().padStart(2, '0')
       const s = Math.floor(this.timeleft % 60).toString().padStart(2, '0')
       return `${m} : ${s}`
+    },
+    pictureHover () {
+      if (this.hover === true) {
+        return this.playhover
+      } else {
+        return this.playimg
+      }
     }
   },
   methods: {
@@ -115,6 +123,12 @@ body{
 }
 btn{
   cursor: pointer;
+}
+btn{
+  cursor: pointer;
+}
+.playbtn{
+  width: 60px;
 }
 .donebtn{
   border: 1px solid #fff;

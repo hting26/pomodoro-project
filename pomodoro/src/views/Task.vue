@@ -6,14 +6,15 @@
         b-form-group(label-for="newinput" invalid-feedback="字數太少")
           b-form-input#newinput(
             placeholder="+ 新增待辦事項" v-model="newinput" :state="newinputstate" @keydown.enter="additem")
-        b-btn#addbtn(pill, @click="additem") 新增
+          b-btn#addbtn(pill, @click="additem") 新增
       b-col.mx-auto.my-4(cols="8")
         b-tabs.mytabs(content-class='mt-3')
           b-tab.mytab(title='待辦事項' active)
             b-col.mx-auto.my-3
               b-table#todotable(:items="items" :fields="fields" show-empty)
                 template(#empty)
-                  p.text-center.my-5 目前沒有待辦事項，<br>新增代辦事項並開始專注
+                  img(src="../assets/img_taskempty.svg")
+                  p.text-center.my-5.empty 目前沒有待辦事項，<br>新增代辦事項並開始專注
                 template(#cell(name)="data")
                   b-form-input(
                     v-if="data.item.edit"
@@ -23,6 +24,8 @@
                     @keydown.esc="canceledit(data.index)"
                   )
                   span(v-else) {{ data.value }}
+                  btn.playbtn
+                    img(src="../assets/icon_play.svg")
                 template(#cell(action)="data")
                   span(v-if="data.item.edit")
                     btn.mybtn.mx-3
@@ -42,7 +45,8 @@
                     btn.mybtn( @click="delfinish(idx)")
                       b-icon(icon="trash")
                 tr(v-if="finished.length === 0")
-                  p.my-5.text-center 目前沒有完成事項，<br>專注當下並完成代辦事項
+                  img(src="../assets/img_taskempty.svg")
+                  p.my-5.text-center.empty 目前沒有完成事項，<br>專注當下並完成代辦事項
 </template>
 
 <script>
@@ -122,7 +126,7 @@ export default {
   width: 5rem;
   border: none;
   background: rgb(146, 200, 224);
-  opacity: 0.3;
+  opacity: 0.4;
   transition: .3s;
   }
 #addbtn:hover{
@@ -136,7 +140,6 @@ export default {
   color: #fff;
 }
 .mybtn{
-  /* text-align: right; */
   color: #fff;
   transition: .3s;
 }
@@ -160,12 +163,11 @@ thead{
 #todotable thead{
   display: none;
 }
-.empty_content{
-  color: #68ABD7;
+.empty{
+  color: rgb(103, 171, 214);
+  position: relative;
+  top: -30PX;
 }
-/* tbody{
-  text-align: left;
-} */
 span{
   display: flex;
   justify-content: space-between;
@@ -183,5 +185,32 @@ span{
 }
 #donetask div{
   display: none;
+}
+.done{
+  /* background-color: aqua; */
+  margin-top: 1.8rem;
+}
+.form-control{
+  color: #fff;
+}
+#newinput{
+  padding-left: 1.5rem;
+  height: 3rem;
+}
+#addbtn{
+  position: absolute;
+  top: .4rem;
+  /* bottom: 0; */
+  right: 1.4rem;
+  height: 2.2rem;
+}
+.playbtn{
+  position: relative;
+  bottom: 25px;
+  /* background-color: aqua; */
+}
+.playbtn img{
+  width: 1.4rem;
+  /* background-color: aqua; */
 }
 </style>
