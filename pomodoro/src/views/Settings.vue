@@ -38,6 +38,7 @@ export default {
 </script>
 
 <style>
+
 .container{
   width: 50%;
 }

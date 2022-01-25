@@ -8,7 +8,11 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    meta: {
+      title: '番茄鐘',
+      keepAlive: true
+    }
   },
   {
     path: '/about',

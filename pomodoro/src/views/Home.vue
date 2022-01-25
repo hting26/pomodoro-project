@@ -31,8 +31,8 @@ export default {
       status: 0,
       timer: 0,
       hover: false,
-      playhover: require('@/assets/icon_play_hover.svg'),
-      playimg: require('@/assets/icon_play.svg')
+      playhover: require('../assets/icon_play_hover.svg'),
+      playimg: require('../assets/icon_play.svg')
     }
   },
   computed: {

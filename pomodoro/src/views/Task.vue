@@ -8,6 +8,8 @@
             placeholder="+ 新增待辦事項" v-model="newinput" :state="newinputstate" @keydown.enter="additem")
             //- :disabled="isBtnDisabled"
           b-btn#addbtn(pill @click="additem") 新增
+      .sort
+        | 排序
       b-col.mx-auto.my-4(cols="8")
         b-tabs.mytabs(content-class='mt-3')
           b-tab.mytab(title='待辦事項' active)
@@ -39,8 +41,6 @@
                       b-icon(icon="pencil" @click="edititem(data.index)")
                     div.mybtn.mx-1
                       b-icon(icon="trash" @click="delitem(data.index)")
-                    .sort
-                      | 排序
           b-tab.mytab.done(title='已完成事項')
             b-table-simple
                 tr#donetask(v-for="(item, idx) in finished")
@@ -109,9 +109,7 @@ export default {
   }
 }
 </script>
-<style lang="scss">
-@import'../style/variables';
-
+<style>
 .container{
   width: 60%;
 }
@@ -232,7 +230,8 @@ span{
 .sort{
   text-decoration: underline;
   position: relative;
-  top: calc(-70px + 1vw);
+  right: calc(160px + 3vw);
+  top: calc(85px + 1vw);
 }
 /* #addbtn:disabled{
   background: rgb(196, 218, 230);
