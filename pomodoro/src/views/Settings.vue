@@ -41,12 +41,15 @@ export default {
 .container{
   width: 50%;
 }
-table>*{
+#settings table>*{
   color: #68ABD7;
   text-align: left;
 }
-tbody tr td:nth-child(1),
-tbody tr td:nth-child(3){
+#settings table tr{
+  cursor: pointer;
+}
+#settings tbody tr td:nth-child(1),
+#settings tbody tr td:nth-child(3){
   position: relative;
   top: 18px;
 }

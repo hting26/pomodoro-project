@@ -6,11 +6,10 @@ Vue.use(Vuex)
 
 const time = parseInt(process.env.VUE_APP_TIME)
 const timebreak = parseInt(process.env.VUE_APP_TIMEBREAK)
-// const timebreak = parseInt(process.env.VUE_APP_TIMEBREAK)
 
 export default new Vuex.Store({
   state: {
-    sound: 'alarm.mp3',
+    sound: 'saxsoloe.wav',
     items: [],
     current: '',
     finished: [],

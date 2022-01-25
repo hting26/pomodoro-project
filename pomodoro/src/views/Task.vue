@@ -14,8 +14,9 @@
             b-col.mx-auto.my-3
               b-table#todotable(:items="items" :fields="fields" show-empty)
                 template(#empty)
-                  img(src="../assets/img_taskempty.svg")
-                  p.text-center.my-5.empty 目前沒有待辦事項，<br>新增代辦事項並開始專注
+                  div.emptybox
+                    img(src="../assets/img_taskempty.svg")
+                    p.text-center.my-5.empty 目前沒有待辦事項，<br>新增代辦事項並開始專注
                 template(#cell(name)="data")
                   b-form-input(
                     v-if="data.item.edit"
@@ -24,26 +25,28 @@
                     @keydown.enter="submitedit(data.index)"
                     @keydown.esc="canceledit(data.index)"
                   )
-                  span(v-else) {{ data.value }}
-                  btn.playbtn
-                    img(src="../assets/icon_play.svg")
+                  div.ml-4.todo(v-else) {{ data.value }}
+                    img.playimg(src="../assets/icon_play.svg")
+                    img.boximg(src="../assets/icon_checkbox_normal.svg")
                 template(#cell(action)="data")
                   span(v-if="data.item.edit")
-                    btn.mybtn.mx-3
+                    div.mybtn.mx-3
                       b-icon(icon="check" @click="submitedit(data.index)")
-                    btn.mybtn.mx-1
+                    div.mybtn.mx-1
                       b-icon(icon="arrow-counterclockwise" @click="canceledit(data.index)")
                   span(v-else)
-                    btn#editbtn.mybtn.mx-3.ml-auto
+                    div.mybtn.mx-3.ml-auto
                       b-icon(icon="pencil" @click="edititem(data.index)")
-                    btn#delbtn.mybtn.mx-1
+                    div.mybtn.mx-1
                       b-icon(icon="trash" @click="delitem(data.index)")
+                    .sort
+                      | 排序
           b-tab.mytab.done(title='已完成事項')
             b-table-simple
                 tr#donetask(v-for="(item, idx) in finished")
                   td {{ item }}
                   td
-                    btn.mybtn( @click="delfinish(idx)")
+                    span.mybtn( @click="delfinish(idx)")
                       b-icon(icon="trash")
                 tr(v-if="finished.length === 0")
                   img(src="../assets/img_taskempty.svg")
@@ -106,13 +109,12 @@ export default {
   }
 }
 </script>
-<style>
+<style lang="scss">
+@import'../style/variables';
+
 .container{
-  width: 50%;
+  width: 60%;
 }
-/* #task{
-  text-align: center;
-} */
 #task table>*{
     color: #68ABD7;
     }
@@ -130,13 +132,12 @@ export default {
 #addbtn{
   width: 5rem;
   border: none;
-  background: rgb(146, 200, 224);
-  /* opacity: 0.4; */
-  /* transition: .3s; */
-  }
-/* #addbtn:hover{
-  opacity: 1;
-  } */
+  background: #C4DAE6;
+  transition: .3s;
+}
+#addbtn:hover{
+  filter: saturate(1.5);
+}
 #addbtn:focus{
   box-shadow: none;
   }
@@ -163,6 +164,9 @@ export default {
   background: none;
   }
 thead{
+  text-align: left;
+}
+#todotable{
   text-align: left;
 }
 #todotable thead{
@@ -192,11 +196,7 @@ span{
   display: none;
 }
 .done{
-  /* background-color: aqua; */
   margin-top: 1.8rem;
-}
-.form-control{
-  color: #fff;
 }
 #newinput{
   padding-left: 1.5rem;
@@ -208,12 +208,31 @@ span{
   right: 1.4rem;
   height: 2.2rem;
 }
-.playbtn{
-  position: relative;
-  bottom: 25px;
+.boximg{
+  position: absolute;
+  left: 0px;
+  cursor: pointer;
 }
-.playbtn img{
+.playimg {
+  position: relative;
+  left: 10px;
+  bottom: 3px;
   width: 1.4rem;
+  cursor: pointer;
+}
+.todo{
+  border-bottom: 6px dotted;
+  display: inline-block;
+}
+.b-table-empty-row{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+.sort{
+  text-decoration: underline;
+  position: relative;
+  top: calc(-70px + 1vw);
 }
 /* #addbtn:disabled{
   background: rgb(196, 218, 230);

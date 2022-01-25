@@ -17,7 +17,8 @@
       router-link.navtool(to='/settings')
         b-icon-gear.mx-auto.h4
         | Settings
-  router-view
+  keep-alive
+    router-view
 </template>
 
 <style>

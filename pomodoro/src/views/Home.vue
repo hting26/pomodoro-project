@@ -5,15 +5,20 @@
       b-col(cols="12")
         h1 {{ currentText }}
         p.timer {{ timeText }}
-        .btngroup.my-5
-          btn.playbtn.my-5.mx-auto(v-if="status !== 1" @click="start")
+        .btngroup.my-4
+          button.playbtn.my-5.mx-auto(v-if="status !== 1" @click="start")
             img(:src="pictureHover" @mouseover="hover = true" @mouseleave="hover = false")
-            //- img(v-show="hover" src="../assets/icon_play_hover.svg")
-          btn.my-5(v-else @click="pause")
-            img(src="../assets/icon_pause.svg")
-          btn.donebtn.my-5.mx-auto(v-if="current.length > 0" @click="finish(true)")
-            | 完成此代辦
-  .line
+          div(v-else)
+            button.pausebtn.my-5( @click="pause")
+              img(src="../assets/icon_pause.svg")
+            .reset.my-2
+              | Reset
+        .dot
+        button.donebtn.mx-auto(v-if="current.length > 0" @click="finish(true)")
+          | 完成此代辦
+  div
+    .line.my-5(:style="{width: lineWidth}")
+      .focus| Focus......
 </template>
 
 <script>
@@ -54,6 +59,11 @@ export default {
       } else {
         return this.playimg
       }
+    },
+    lineWidth () {
+      const timeline = (
+        this.timeleft / (this.$store.state.break === false ? parseInt(process.env.VUE_APP_TIME) : parseInt(process.env.VUE_APP_TIMEBREAK))) * 100
+      return timeline + 'vw'
     }
   },
   methods: {
@@ -97,49 +107,64 @@ export default {
 <style>
 body{
   font-family: 'Cinzel', serif;
+  overflow: hidden;
 }
 .container{
   text-align: center;
 }
 .row{
-  margin-top: 8vw;
+  margin-top: 3vw;
 }
 .timer{
   font-size: 4.5rem;
-}
-.timerbtn{
-  border: none;
-  background: transparent;
-  color: #68ABD7;
-  font-size: 2rem;
-}
-.timerbtn:hover{
-  border: none;
-  background: transparent;
-  color: #fff;
 }
 .btngroup{
   display: flex;
   flex-direction: column;
 }
-btn{
-  cursor: pointer;
-}
-.playbtn{
-  width: 60px;
-}
 .donebtn{
   border: 1px solid #fff;
   border-radius: 50px;
   width: 130px;
-  height: 35px;
-  line-height: 35px;
+  height: 3rem;
+  line-height: 2.2rem;
+  color: #68ABD7;
+  position: absolute;
+  top: 550px;
+  transform: translateX(-50%);
+  transition: .3s;
+}
+.donebtn:hover{
+  color: #fff;;
 }
 .line{
-  position: relative;
-  bottom: 200px;
+  position: absolute;
+  bottom: calc(300px - 10px);
   width: 100vw;
   height: 1px;
   background-color: #fff;
+  transition: .5s;
+}
+.focus{
+  position: absolute;
+  right: -70px;
+  top: -11px;
+  color: #fff;
+}
+button{
+  background: transparent;
+  border: none;
+}
+.reset{
+  cursor: pointer;
+}
+.dot{
+  position: absolute;
+  width: 200px;
+  border-top: 10px dotted;
+  margin: 0 auto;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 500px;
 }
 </style>
