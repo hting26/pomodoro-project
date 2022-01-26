@@ -5,7 +5,7 @@
       b-col(cols="12")
         b-table(:items="items" :fields="fields"  @row-clicked='select')
           template(#cell(src)="data")
-            audio(controls :src="require('@/assets/' + data.value)")
+            audio(controls :src="require('../assets/' + data.value)")
           template(#cell(select)="data")
             span(v-if="data.item.src === sound") <b-icon-check class="h3"></b-icon-check>
 </template>

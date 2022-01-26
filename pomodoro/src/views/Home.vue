@@ -3,19 +3,19 @@
   b-container
     b-row
       b-col(cols="12")
-        h1 {{ currentText }}
-        p.timer {{ timeText }}
-        .btngroup.my-4
-          button.playbtn.my-5.mx-auto(v-if="status !== 1" @click="start")
+        h1.mt-1.mb-5 {{ currentText }}
+        p.timer.my-3 {{ timeText }}
+        .btngroup
+          button.playbtn.my-4.mx-auto(v-if="status !== 1" @click="start")
             img(:src="pictureHover" @mouseover="hover = true" @mouseleave="hover = false")
           div(v-else)
-            button.pausebtn.my-5( @click="pause")
+            button.pausebtn.my-4( @click="pause")
               img(src="../assets/icon_pause.svg")
             .reset.my-2
               | Reset
         .dot
-        button.donebtn.mx-auto(v-if="current.length > 0" @click="finish(true)")
-          | 完成此代辦
+          button.donebtn.mx-auto(v-if="current.length > 0" @click="finish(true)")
+            | 完成此代辦
   div
     .line.my-5(:style="{width: lineWidth}")
       .focus| Focus......
@@ -129,9 +129,9 @@ body{
   height: 3rem;
   line-height: 2.2rem;
   color: #68ABD7;
-  position: absolute;
-  top: 550px;
-  transform: translateX(-50%);
+  position: relative;
+  top: 50px;
+  /* transform: translateX(-50%); */
   transition: .3s;
 }
 .donebtn:hover{
@@ -139,11 +139,11 @@ body{
 }
 .line{
   position: absolute;
-  bottom: calc(300px - 10px);
+  bottom: calc(300px + 3vh);
   width: 100vw;
   height: 1px;
   background-color: #fff;
-  transition: .5s;
+  transition: 1s;
 }
 .focus{
   position: absolute;
@@ -165,6 +165,7 @@ button{
   margin: 0 auto;
   left: 50%;
   transform: translateX(-50%);
-  top: 500px;
+  top: calc(500px + 3vh);
+  /* bottom: -200px; */
 }
 </style>
