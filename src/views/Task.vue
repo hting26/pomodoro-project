@@ -232,6 +232,7 @@ span{
   position: relative;
   right: calc(160px + 3vw);
   top: calc(85px + 1vw);
+  cursor: pointer;
 }
 /* #addbtn:disabled{
   background: rgb(196, 218, 230);
