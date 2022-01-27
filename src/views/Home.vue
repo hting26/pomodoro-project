@@ -111,6 +111,7 @@ body{
 }
 .container{
   text-align: center;
+  height: 360px;
 }
 .row{
   margin-top: 3vw;
@@ -131,15 +132,13 @@ body{
   color: #68ABD7;
   position: relative;
   top: 50px;
-  /* transform: translateX(-50%); */
   transition: .3s;
 }
 .donebtn:hover{
   color: #fff;;
 }
 .line{
-  position: absolute;
-  bottom: calc(300px + 3vh);
+  position: relative;
   width: 100vw;
   height: 1px;
   background-color: #fff;
