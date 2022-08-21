@@ -44,7 +44,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "img/img_taskempty.03c85a7c.svg"
   },
   {
-    "revision": "f3fc075ad297d49bc32e13e184e1c282",
+    "revision": "2afb136dc46bed2bcec063e7e71fa5b4",
     "url": "index.html"
   },
   {

@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "precache-manifest.156104fd942823329f66ebee775bf073.js"
+  "precache-manifest.fa41737857fd6327eaac36211606c2bd.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "pomodoro"});
