@@ -66,6 +66,6 @@ export default new Vuex.Store({
   modules: {
   },
   plugins: [
-    createPersistedState({ key: 'pomodoro' })
+    createPersistedState({ key: 'serene_pomodoro' })
   ]
 })

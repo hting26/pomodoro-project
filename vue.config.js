@@ -8,8 +8,8 @@ module.exports = {
   },
   pwa: {
     manifestOptions: {
-      name: 'serene pomodoro',
-      short_name: 'pomodoro',
+      name: 'serene_pomodoro',
+      short_name: 'serene_pomodoro',
       theme_color: '#92c8e0',
       background_color: '#92c8e0',
       scope: './',
