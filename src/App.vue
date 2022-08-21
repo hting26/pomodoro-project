@@ -18,8 +18,8 @@
         b-icon-gear.mx-auto.h4
         | Settings
   keep-alive
-    router-view(v-if="$route.meta.keepAlive")
-  router-view(v-if="!$route.meta.keepAlive")
+    router-view(v-if="this.$route.meta.keepAlive")
+  router-view(v-if="!this.$route.meta.keepAlive")
 </template>
 
 <style>
