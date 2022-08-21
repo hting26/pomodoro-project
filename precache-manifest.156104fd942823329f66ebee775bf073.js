@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "4f8b7f58984b6c9e613f",
+    "revision": "8b1701d381105f52f290",
     "url": "css/app.598c85cc.css"
   },
   {
@@ -44,7 +44,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "img/img_taskempty.03c85a7c.svg"
   },
   {
-    "revision": "a6f456d4559b98b8bdc4dd2032971f5f",
+    "revision": "f3fc075ad297d49bc32e13e184e1c282",
     "url": "index.html"
   },
   {
@@ -52,8 +52,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "js/about.65d8579d.js"
   },
   {
-    "revision": "4f8b7f58984b6c9e613f",
-    "url": "js/app.da286cec.js"
+    "revision": "8b1701d381105f52f290",
+    "url": "js/app.56994bc1.js"
   },
   {
     "revision": "ea85c23f7b96d929dd84",
@@ -68,7 +68,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "js/task.855199ff.js"
   },
   {
-    "revision": "ac46dcf1d6e96a8b3ca59389cd58b7d5",
+    "revision": "cbd1f829c6410509105039dc81824f75",
     "url": "manifest.json"
   },
   {
